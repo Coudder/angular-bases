@@ -3,6 +3,7 @@
 
 
 import { Component } from '@angular/core';
+import { Character } from '../interfaces/character.interface';
 
 @Component({
   selector: 'app-dbz-main-page',
@@ -10,6 +11,21 @@ import { Component } from '@angular/core';
 
 })
 export class MainPageComponent   {
+                    //interface que creamos
+  public characters :Character[] =[ //*MANDAMOS ESTA PROPIEDAD AL COMPONENTE HIJO ListComponent
+    {
+      name:'Goku',
+      power: 9500
+   },
+   {
+    name: 'Vegeta',
+    power: 9000
+   },
+   {
+    name: 'Krilin',
+    power: 500
+   }
+ ];
 
 
 

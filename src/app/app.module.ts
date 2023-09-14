@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
 
+
   ],
   imports: [ //* AQUI SE DECLARAN LOS MODULOSPAR CONSUMIRLOS
     BrowserModule,
