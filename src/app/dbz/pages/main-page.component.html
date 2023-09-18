@@ -5,7 +5,12 @@
   <div class="col">
                 <!-- Recibimos la propiedad de nuestro componente listcomponent la propiedad characterlist que esta
                 esteprando un arreclo y le pasamos nuestro characters que es un arreglo de personajes -->
-    <dbz-list [characterList]="characters" ></dbz-list>
+                <!--ondelete AGREGAMOS EL EVENTO EMITER CREADO EN LISTCOMPONENT A NUESTRO LISTADO DE CHARACTERES Y LE
+                PASAMOS LA FUNCION QUE NOS RECIBE EL INDEX QUE VIENE DEL HIJO LISTCOMPONENT  -->
+    <dbz-list
+      [characterList]="characters"
+      (onDeleteCharhacterEmitter)="onDeleteCharacter($event)"
+      ></dbz-list>
     <!-- ESTE CODIGO LO TRASNFORMAMOS EN UN COMPONENTE QUE ES EL QUE ESTA ARRIBA APPDBZLIST -->
     <!-- <h4>Listado</h4>
       <ul class="list-group">
@@ -14,8 +19,12 @@
       </ul> -->
   </div>
 
+                  <!-- ESCUCHAR LOS EVENTOS SON EN PARENTESIS Y LOS INPUTS SON LLAVES CUADRADAS
+                    emitimos el evento que creamos en el add-character y le pasamos el metodo creado aqui con el evento
+                  que en el evento viene el character del addCharacter  -->
   <div class="col">
-      <dbz-add-character></dbz-add-character>
+    <!-- EN ESTE COMPONENTE ESTA EL BOTON AGREGAR PERSONAJE  -->
+      <dbz-add-character  (onNewCharacter)="onNewCharacter($event)"  ></dbz-add-character>
       <!-- ESTE CODIGO LO TRANSFORMAMOS EN OTRO COMPONENTE  -->
       <!-- <h4>Agregar Personaje</h4>
     <form class="row">

@@ -3,6 +3,7 @@
 
 
 import { Component } from '@angular/core';
+import { DbzService } from '../services/dbz.service';
 import { Character } from '../interfaces/character.interface';
 
 @Component({
@@ -11,22 +12,25 @@ import { Character } from '../interfaces/character.interface';
 
 })
 export class MainPageComponent   {
-                    //interface que creamos
-  public characters :Character[] =[ //*MANDAMOS ESTA PROPIEDAD AL COMPONENTE HIJO ListComponent
-    {
-      name:'Goku',
-      power: 9500
-   },
-   {
-    name: 'Vegeta',
-    power: 9000
-   },
-   {
-    name: 'Krilin',
-    power: 500
-   }
- ];
+
+                //!inyectamos nuestro servicio creado
+     constructor( private dbzService: DbzService ){}
 
 
+     //*CREAMMOS UN GETTER PARA OBTENER NUESTRO PERSONAJES
+     get characters():Character[]{
+      return [...this.dbzService.characters]; //!CREAMOS UNA COPIA PARA NO MODIFICAR EL ORIGINAL CON EL SPREAD
+     }
+
+     onDeleteCharacter(id:string):void {
+
+      //accedemos al servicio y llamamos la funcion y le pasamos el di
+      this.dbzService.deleteCharacterById(id);
+
+     }
+
+     onNewCharacter(character:Character):void {
+      this.dbzService.addCharacter(character);
+     }
 
 }

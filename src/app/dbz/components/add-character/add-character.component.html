@@ -1,12 +1,12 @@
 <h4>Agregar Personaje</h4>
 
-<form class="row">
+<form class="row"  (ngSubmit)="emitCharacter()" >
     <!-- UTILIZAMOS EL NGMODEL PARA EL TWOWAYDATABINDING LE TENEMOS QUE PONER LA PROP NAME AL INPUT PARA RELACIONARLO CON EL NGMODEL -->
   <input name="name"  type="text" [(ngModel)]="character.name"  class="form-control mb-2" placeholder="Nombre" />
 
   <input name="power" type="number" [(ngModel)]="character.power"  class="form-control mb-2" placeholder="Poder" />
 
-  <button (click)="emitCharacter()" class="btn btn-primary mt-2" type="submit">Agregar</button>
+  <button  class="btn btn-primary mt-2" type="submit">Agregar</button>
 
-  <pre> {{character | json}} </pre>
+  <!-- <pre> {{character | json}} </pre> -->
 </form>
