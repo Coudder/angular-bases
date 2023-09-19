@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
+## GitHub Pages
+
+Creamos scripts personalizados para poder subir el proyecto a github pages checar el pckage.json
+instalamos npm install copyfiles --save-dev
+           npm install del-cli --save-dev
+    build:href": "ng build --base-href ./",
+    "build:github":"npm run delete:docs && npm run build:href && npm run copy:dist",
+    "delete:docs": "del docs",
+    "copy:dist":"copyfiles dist/bases/* ./docs -f"
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
